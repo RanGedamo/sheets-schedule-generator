@@ -1,0 +1,8 @@
+# Dependencies
+/node_modules
+
+# Secret files
+/config/credentials.json
+
+# Environment variables
+.env
