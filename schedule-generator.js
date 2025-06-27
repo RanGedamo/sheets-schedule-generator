@@ -262,7 +262,8 @@ async function prepareTargetSheet(sheets, spreadsheetId, datedWeek) {
 async function generateScheduleFromData(dbData) {
     const startTime = performance.now();
     const targetSpreadsheetId = '1Gj7XvZLzrLudAOdL9flItxto76w39B9XyvdYZLYe33c'; 
-    const keyFilePath = 'config/credentials.json';
+    // const keyFilePath = 'config/credentials.json';
+    const keyFilePath = 'credentials.json';
 
     // ה-try/catch עבר לשרת, כאן אנחנו רוצים שהשגיאה "תיזרק" למעלה
     const scheduleConfig = transformDbDataToScheduleConfig(dbData);
