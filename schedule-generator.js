@@ -265,8 +265,9 @@ async function generateScheduleFromData(dbData) {
     const targetSpreadsheetId = '1Gj7XvZLzrLudAOdL9flItxto76w39B9XyvdYZLYe33c'; 
     // const keyFilePath = 'config/credentials.json';
     // const keyFilePath = 'credentials.json';
-    const keyFilePath = path.join(__dirname, 'config', 'credentials.json');
-
+const keyFilePath = process.env.RENDER === 'true'
+  ? '/etc/secrets/credentials.json'
+  : path.join(__dirname, 'config', 'credentials.json');
     // ה-try/catch עבר לשרת, כאן אנחנו רוצים שהשגיאה "תיזרק" למעלה
     const scheduleConfig = transformDbDataToScheduleConfig(dbData);
     
