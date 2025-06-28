@@ -266,14 +266,15 @@ async function generateScheduleFromData(dbData) {
     // const keyFilePath = 'config/credentials.json';
     // const keyFilePath = 'credentials.json';
 
-
-if (!fs.existsSync(keyFilePath)) {
-  throw new Error(`Credentials file not found at ${keyFilePath}`);
-}
 const keyFilePath = process.env.RENDER === 'true'
   ? '/etc/secrets/credentials.json'
   : path.join(__dirname, 'config', 'credentials.json');
     console.log('Looking for credentials at:', keyFilePath);
+    
+if (!fs.existsSync(keyFilePath)) {
+  throw new Error(`Credentials file not found at ${keyFilePath}`);
+}
+
   // ה-try/catch עבר לשרת, כאן אנחנו רוצים שהשגיאה "תיזרק" למעלה
     const scheduleConfig = transformDbDataToScheduleConfig(dbData);
     
