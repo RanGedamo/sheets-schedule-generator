@@ -4,6 +4,7 @@
 const { google } = require('googleapis');
 const fs = require('fs');
 const { performance } = require('perf_hooks');
+const path = require('path');
 
 // =================================================================
 // פונקציית ה"מתאם" (Adapter)
@@ -263,7 +264,8 @@ async function generateScheduleFromData(dbData) {
     const startTime = performance.now();
     const targetSpreadsheetId = '1Gj7XvZLzrLudAOdL9flItxto76w39B9XyvdYZLYe33c'; 
     // const keyFilePath = 'config/credentials.json';
-    const keyFilePath = 'credentials.json';
+    // const keyFilePath = 'credentials.json';
+    const keyFilePath = path.join(__dirname, 'config', 'credentials.json');
 
     // ה-try/catch עבר לשרת, כאן אנחנו רוצים שהשגיאה "תיזרק" למעלה
     const scheduleConfig = transformDbDataToScheduleConfig(dbData);
